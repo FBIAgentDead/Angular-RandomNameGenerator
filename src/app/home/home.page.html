@@ -1,14 +1,32 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Random name generator
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>  
+      <div ng-app="myApp" ng-controller="customersCtrl"></div>
+      <ion-item>
+        <ion-label>Enter Name:</ion-label>
+        <ion-input [(ngModel)]="user"></ion-input>
+      </ion-item>
+      <ion-button (click)="sendname()" value="value" color="success">Submit</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-label>Names:</ion-label><br>
+    </ion-row>
+      <tr *ngFor="let name of names; let i = index">
+        <ion-row>
+          <td>{{i+1+"."}} {{name}}</td>
+        </ion-row>
+      </tr>
+    <ion-row>
+      <ion-button (click)="pickrandom()" color="success">Pick Random name</ion-button><br>
+    </ion-row>
+  <a>{{this.pickedname}}</a>
+</ion-grid>
 </ion-content>
